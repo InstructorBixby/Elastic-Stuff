@@ -1,0 +1,45 @@
+{
+  "aggs": {
+    "0": {
+      "terms": {
+        "field": "cisco.umbrella.identity",
+        "order": {
+          "_count": "desc"
+        },
+        "size": 20
+      }
+    }
+  },
+  "size": 0,
+  "fields": [
+    {
+        "~~~Fields go Here~~~"
+    }
+  ],
+  "script_fields": {},
+  "stored_fields": [
+    "*"
+  ],
+  "runtime_mappings": {},
+  "_source": {
+    "excludes": []
+  },
+  "query": {
+    "bool": {
+      "must": [],
+      "filter": [
+        {
+          "range": {
+            "@timestamp": {
+              "format": "strict_date_optional_time",
+              "gte": "START TIME",
+              "lte": "END TIME"
+            }
+          }
+        }
+      ],
+      "should": [],
+      "must_not": []
+    }
+  }
+}
